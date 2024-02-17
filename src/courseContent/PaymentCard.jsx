@@ -118,7 +118,7 @@ const PaymentCard = ({ price }) => {
     // <div className="sticky top-1">
 
      <div className="m-4 sticky top-3 right-3 ">
-      <div className="flex w-full max-w-[800px] border-4 border-indigo-500 flex-cols-1 items-center justify-center rounded-xl bg-gradient-to-tr from-[#E7E9E8] to-[#f4f4f3] bg-clip-border p-8 text-black shadow-lg">
+      <div className="grid w-full max-w-[900px] border-4 border-indigo-500 flex-cols-1 items-center justify-center rounded-xl bg-gradient-to-tr from-[#E7E9E8] to-[#f4f4f3] bg-clip-border p-8 text-black shadow-lg">
         <div className="relative m-0 mb-8 w-full overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center  shadow-none">
           <p className="block font-sans text-sm font-normal uppercase leading-normal  antialiased">
             {/* standard */}

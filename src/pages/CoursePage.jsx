@@ -52,7 +52,7 @@ const CoursePage = () => {
         <p className="font-semibold">₹{course.price}</p>
       </div>
       <div className="flex-row lg:flex">
-        <div className="w-full lg:w-[800px]">
+        <div className="w-full lg:w-[1000px]">
           <ul className="m-2 p-4 sticky top-2 gap-3 bg-white rounded-2xl z-10 flex flex-nowrap overflow-scroll overflow-y-hidden">
             <Link
               activeClass="active"
