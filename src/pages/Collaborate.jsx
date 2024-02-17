@@ -14,83 +14,85 @@ import ChatRoom from "../collaborateContent/ChatRoom";
 import { Link } from "react-router-dom";
 
 const Collaborate = () => {
-    const [joinChatRoom, setJoinChatRoom] = useState(true);
-    const [joinLiveStream, setJoinLiveStream] = useState(false);
-    const [joinVideoRoom, setJoinVideoRoom] = useState(false);
-    const [joinAudioRoom, setJoinAudioRoom] = useState(false);
+  const [joinChatRoom, setJoinChatRoom] = useState(true);
+  const [joinLiveStream, setJoinLiveStream] = useState(false);
+  const [joinVideoRoom, setJoinVideoRoom] = useState(false);
+  const [joinAudioRoom, setJoinAudioRoom] = useState(false);
 
-    return (
-        <>
-            <Navbar />
-            <ul className="m-2 p-4 rounded-sm z-10">
-            <button
-                    className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:bg-[#B6DEEF] ${joinChatRoom ? "bg-[#4F46E5]" : "bg-[#E7E9E8]"}`}
-                    onClick={() => {
-                        setJoinChatRoom(true);
-                        setJoinLiveStream(false);
-                        setJoinVideoRoom(false);
-                        setJoinAudioRoom(false);
-                    }}
-                >
-                    Join Chat Room 
-                </button>
-                <button
-                    className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:bg-[#B6DEEF] ${joinLiveStream ? "bg-[#4F46E5]" : "bg-[#E7E9E8]"}`}
-                    onClick={() => {
-                        setJoinLiveStream(true);
-                        setJoinChatRoom(false);
-                        setJoinVideoRoom(false);
-                        setJoinAudioRoom(false);
-                    }}
-                >
-                    Join Live Stream
-                </button>
-                <button
-                    className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:bg-[#B6DEEF] ${joinVideoRoom ? "bg-[#4F46E5]" : "bg-[#E7E9E8]"}`}
-                    onClick={() => {
-                        setJoinLiveStream(false);
-                        setJoinChatRoom(false);
-                        setJoinVideoRoom(true);
-                        setJoinAudioRoom(false);
-                    }}
-                >
-                    Join Video Room
-                </button>
-                <button
-                    className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:bg-[#B6DEEF] ${joinAudioRoom ? "bg-[#4F46E5]" : "bg-[#E7E9E8]"}`}
-                    onClick={() => {
-                        setJoinLiveStream(false);
-                        setJoinChatRoom(false);
-                        setJoinVideoRoom(false);
-                        setJoinAudioRoom(true);
-                    }}
-                >
-                    Join Audio Room
-                </button>
-
+  return (
+    <>
+      <Navbar />
+      <div className="flex-row lg:flex">
+          <div className="w-full lg:w-full">
+            <ul className="m-2 p-4 sticky top-2 gap-3 bg-white rounded-2xl z-10 flex flex-nowrap overflow-scroll items-center  justify-center overflow-y-hidden">
+              <button
+                className="block-inline select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                onClick={() => {
+                  setJoinChatRoom(true);
+                  setJoinLiveStream(false);
+                  setJoinVideoRoom(false);
+                  setJoinAudioRoom(false);
+                }}
+              >
+                Join Chat Room
+              </button>
+              <button
+                className="block select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                onClick={() => {
+                  setJoinLiveStream(true);
+                  setJoinChatRoom(false);
+                  setJoinVideoRoom(false);
+                  setJoinAudioRoom(false);
+                }}
+              >
+                Join Live Stream
+              </button>
+              <button
+                className="block select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                onClick={() => {
+                  setJoinLiveStream(false);
+                  setJoinChatRoom(false);
+                  setJoinVideoRoom(true);
+                  setJoinAudioRoom(false);
+                }}
+              >
+                Join Video Room
+              </button>
+              <button
+                className="block select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                onClick={() => {
+                  setJoinLiveStream(false);
+                  setJoinChatRoom(false);
+                  setJoinVideoRoom(false);
+                  setJoinAudioRoom(true);
+                }}
+              >
+                Join Audio Room
+              </button>
             </ul>
-            <div className="flex justify-around">
-                {joinChatRoom && <ChatRoom/>}
-                {joinVideoRoom && <VideoRoom />}
-                {joinAudioRoom && <AudioRoom />}
-                {joinLiveStream && <LiveStreamRoom />}
-                <div className="hidden lg:flex">
-                    {/* <img
+          </div>
+        </div>
+      <div className="flex justify-around">
+        {joinChatRoom && <ChatRoom />}
+        {joinVideoRoom && <VideoRoom />}
+        {joinAudioRoom && <AudioRoom />}
+        {joinLiveStream && <LiveStreamRoom />}
+        <div className="hidden lg:flex">
+          {/* <img
                         className="h-[300px] w-[400px] mt-20"
                         src={Img}
                         alt="Log in Image"
                     /> */}
-                </div>
-                {/* <Link
+        </div>
+        {/* <Link
                 to="/quizpage"
                 rel="noopener"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-full ">
                 Quiz Page
               </Link> */}
-            </div>
-
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Collaborate;
