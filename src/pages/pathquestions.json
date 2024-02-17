@@ -13,23 +13,19 @@
             "content_options": [
                 {
                     "id": 1,
-                    "options_text": "Newbie",
-                    "is_correct": true
+                    "options_text": "Newbie"
                 },
                 {
                     "id": 2,
-                    "options_text": "Basic",
-                    "is_correct": false
+                    "options_text": "Basic"
                 },
                 {
                     "id": 3,
-                    "options_text": "Intermediate",
-                    "is_correct": false
+                    "options_text": "Intermediate"
                 },
                 {
                     "id": 4,
-                    "options_text": "Advance",
-                    "is_correct": false
+                    "options_text": "Advance"
                 }
             ]
         },
@@ -45,23 +41,19 @@
             "content_options": [
                 {
                     "id": 5,
-                    "options_text": "Frontend",
-                    "is_correct": false
+                    "options_text": "Frontend"
                 },
                 {
                     "id": 6,
-                    "options_text": "Backend",
-                    "is_correct": true
+                    "options_text": "Backend"
                 },
                 {
                     "id": 7,
-                    "options_text": "Fullstack",
-                    "is_correct": false
+                    "options_text": "Fullstack"
                 },
                 {
                     "id": 8,
-                    "options_text": "Database & Analytics",
-                    "is_correct": false
+                    "options_text": "Database & Analytics"
                 }
             ]
         },
@@ -77,23 +69,19 @@
             "content_options": [
                 {
                     "id": 5,
-                    "options_text": "Frontend",
-                    "is_correct": false
+                    "options_text": "Frontend"
                 },
                 {
                     "id": 6,
-                    "options_text": "Backend",
-                    "is_correct": true
+                    "options_text": "Backend"
                 },
                 {
                     "id": 7,
-                    "options_text": "Fullstack",
-                    "is_correct": false
+                    "options_text": "Fullstack"
                 },
                 {
                     "id": 8,
-                    "options_text": "Database & Analytics",
-                    "is_correct": false
+                    "options_text": "Database & Analytics"
                 }
             ]
         }

@@ -72,7 +72,7 @@ const Learningpath = () => {
   };
   return (
     <div className="conatiner relative h-screen">
-    <h1 className="text-center text-3xl mt-5 text-indigo-600 font-bold">Begin your journey with CuriCamp!</h1>
+    <h1 className="text-center text-3xl mt-5 text-indigo-600 font-bold">Begin your journey with CurioCamp!</h1>
       <div className="flex absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] flex-col mt-16 w-screen px-5 h-screen items-center text-black">
         {!quizSubmitted ? (
           <>

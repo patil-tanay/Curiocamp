@@ -79,7 +79,7 @@ const UpdateDetails = () => {
           {(formik) => (
             <Form className="mx-3 flex flex-col max-w-[500px]">
               <div className="pb-8 flex justify-center">
-                <p className="text-4xl font-bold inline">Update Details</p>
+                <p className="text-4xl font-bold inline text-indigo-600">Update Details</p>
               </div>
               <div className="">
                 <div className="grid grid-cols-2 gap-3">
@@ -136,7 +136,7 @@ const UpdateDetails = () => {
               />
               <button
                 type="submit"
-                className="text-[#E0E0E0] rounded-full px-5 py-2 my-8 mx-auto flex items-center bg-[#0F1035] shadow-lg shadow-[#040c166b] font-bold text-lg dark:shadow-lg dark:shadow-[#000000] hover:bg-[#382bf0] hover:-translate-y-1 duration-300"
+                className="text-white rounded-full px-5 py-2 my-8 mx-auto flex items-center bg-indigo-600 shadow-lg shadow-[#040c166b] font-bold text-lg dark:shadow-lg dark:shadow-[#000000] hover:bg-[#382bf0] hover:-translate-y-1 duration-300"
               >
                 Update
               </button>
