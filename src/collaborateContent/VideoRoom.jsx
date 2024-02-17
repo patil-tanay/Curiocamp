@@ -149,7 +149,7 @@ const VideoRoom = () => {
           onChange={e => (token.current = e.target.value)}
         /> */}
         <h3>Please input the channel name</h3>
-        <input className='border-2 py-1 px-1'
+        <input className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'
           defaultValue={channel.current}
           onChange={e => (channel.current = e.target.value)}
         />
