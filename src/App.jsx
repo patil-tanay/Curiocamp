@@ -29,10 +29,13 @@ import QuizForm from "./component/Quizform";
 import Dailyquest from "./pages/Dailyquest";
 import QuizPage from "./pages/Quizpage";
 import Learningpath from "./pages/LearningPath";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
     <>
+    <ToastContainer limit={3} />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/signin" element={<Signin />} />

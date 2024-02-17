@@ -21,9 +21,11 @@ const Home = ()=>{
         })
         .then((response)=>{
             console.log(response.data);
+            toast.success('Payment Completed Successfully',{ autoClose: 1300,draggablePercent: 20});
         })
         .catch((error)=>{
             console.log(error.response.data);
+            toast.error('An error occurred. Please try again later.');
         })
     }
 

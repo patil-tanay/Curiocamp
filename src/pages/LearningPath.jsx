@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import questions from "./pathquestions.json";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const Learningpath = () => {
   const { id } = useParams();
   const url = import.meta.env.VITE_BASE_URL;
@@ -54,22 +56,27 @@ const Learningpath = () => {
       .then((response) => {
         if (response.ok) {
           // Handle success response
-          console.log("Answers submitted successfully!");
+          // console.log("Answers submitted successfully!");
+          toast.success('Answers submitted successfully!',{ autoClose: 1300,draggablePercent: 20});
         } else {
           // Handle error response
           console.error("Failed to submit answers");
+          toast.error('Failed to submit answers!',{ autoClose: 1300,draggablePercent: 20});
         }
       })
       .catch((error) => {
         console.error("Error submitting answers:", error);
+        toast.error('Error submitting answers!',{ autoClose: 1300,draggablePercent: 20});
+
       });
   };
   return (
     <div className="conatiner relative h-screen">
-      <div className="flex absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] flex-col mt-10 w-screen px-5 h-screen items-center text-black">
+    <h1 className="text-center text-3xl mt-5 text-indigo-600 font-bold">Begin your journey with CuriCamp!</h1>
+      <div className="flex absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] flex-col mt-16 w-screen px-5 h-screen items-center text-black">
         {!quizSubmitted ? (
           <>
-            <div className="p-4 m-3 w-full lg:w-3/5 shadow-lg rounded-2xl">
+            <div className="p-4 m-3 w-full mt-3 lg:w-3/5 shadow-lg rounded-2xl">
               <h4 className="mt-1 text-md">
                 Question {currentQuestionIndex + 1} of{" "}
                 {questions.results.length}
@@ -146,3 +153,4 @@ const Learningpath = () => {
   );
 };
 export default Learningpath;
+

@@ -56,13 +56,18 @@ const MCQpage = () => {
         if (response.ok) {
           // Handle success response
           console.log("Answers submitted successfully!");
+          toast.success('Answers submitted successfully!',{ autoClose: 1300,draggablePercent: 20});
+
         } else {
           // Handle error response
           console.error("Failed to submit answers");
+          toast.error('Failed to submit answers');
         }
       })
       .catch((error) => {
         console.error("Error submitting answers:", error);
+        toast.error('Error submitting answers');
+
       });
   };
   return (

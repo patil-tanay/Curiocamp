@@ -45,7 +45,9 @@ const Signin = () => {
                   localStorage.setItem("token", responseData.token.access);
                   localStorage.setItem("user_id", responseData.results.id);
                   localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
-                  toast.success(responseData.message);
+                  // toast.success(responseData.message);
+                  // toast.success('Logged In Successfully',{ autoClose: 1300, style: {fontSize:'18px'},draggablePercent: 20});
+                  toast.success('Logged In Successfully',{ autoClose: 1300,draggablePercent: 20});
                   console.log(responseData.message);
                   navigate("/courses");
                 } else {

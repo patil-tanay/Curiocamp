@@ -28,16 +28,19 @@ const PaymentCard = ({ price }) => {
     })
       .then((response) => {
         console.log(response.data);
+        toast.success('Payment Completed Successfully',{ autoClose: 1300,draggablePercent: 20});
+
       })
       .catch((error) => {
         console.log(error.response.data);
+        toast.error('An error occurred. Please try again later.');
       });
   };
 
   const razorPay = () => {
     // Get the authentication token from localStorage or wherever it's stored
-    // const authToken = localStorage.getItem("token");
-    const authToken = import.meta.env.VITE_TOKEN
+    const authToken = localStorage.getItem("token");
+    // const authToken = import.meta.env.VITE_TOKEN
 
     // Create the axios instance with the authentication token
     const axiosInstance = axios.create({
