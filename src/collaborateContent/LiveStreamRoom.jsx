@@ -168,6 +168,12 @@ const LiveStreamRoom = () => {
             Publish Audio
           </button>}
           <button onClick={leaveChannel} className={`py-2 mt-1 px-4 mx-2 inline-block rounded-full shadow-2xl bg-[#4F46E5] text-[#FFFFFF] hover:bg-[#382bf0] hover:-translate-y-1 duration-300`}>Leave Channel</button>
+          <Link
+    to="/quizform"
+    rel="noopener"
+    className="px-4 py-2 text-lg mt-5 font-medium text-white bg-indigo-600 rounded-full">
+    Quiz Form
+  </Link>
         </div>
       </div>
       <div className="right-side">
@@ -178,12 +184,7 @@ const LiveStreamRoom = () => {
             You can shared channel {channel.current} to others.....
           </div>
         ) : null}
-      <Link
-    to="/quizform"
-    rel="noopener"
-    className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-full ">
-    Quiz Form
-  </Link>
+      
       </div>
     </>
   )

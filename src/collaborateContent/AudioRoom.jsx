@@ -113,7 +113,7 @@ const AudioRoom = () => {
     <>
       <div className="left-side">
         <h3>Pleat check you camera / microphone!</h3>
-        <div className="buttons">
+        <div className="buttons mt-2 mb-3">
       {!isAudioRoom && <button
             onClick={() => turnOnCamera()}
             className={isVideoOn ? "button-on" : ""}
@@ -147,6 +147,7 @@ const AudioRoom = () => {
         /> */}
         <h3>Please input the channel name</h3>
         <input
+          className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'
           defaultValue={channel.current}
           onChange={e => (channel.current = e.target.value)}
         />

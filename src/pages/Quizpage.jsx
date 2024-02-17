@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue, off } from 'firebase/database';
+import { Link } from 'react-router-dom';
+
 // import './livequiz.css';
 // Your Firebase configuration
 const firebaseConfig = {
@@ -57,8 +59,8 @@ const QuizPage = () => {
         <div className="conatiner relative h-screen">
             <div className="flex absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] flex-col mt-10 w-screen px-5 h-screen items-center text-black">
             <div className="p-4 m-3 w-full lg:w-3/5 shadow-lg rounded-2xl">
-            <h2 className="mt-1 text-md">Last Quiz Question</h2>
-            <p>{lastQuestion}</p>
+            <h2 className="mt-1 text-md font-bold text-indigo-600">Quiz Question</h2>
+            <p className='text-bold text-xl mt-2 mb-1'>{lastQuestion}</p>
             <div >
             <ul>
                 {lastQuestionOptions.map((option, index) => (
@@ -77,6 +79,11 @@ const QuizPage = () => {
                     </li>
                 ))}
             </ul>
+            <Link to="/collaborate">
+                <button className="btn-submit px-8 mt-3 py-2 text-lg font-medium text-center text-white bg-indigo-600 rounded-2xl">
+                  Go Back
+                </button>
+              </Link>
             </div>
         </div>
             </div>

@@ -105,11 +105,13 @@ const CoursePage = () => {
               Review
             </Link>
           </ul>
+          <div className="">
           <Overview />
           <CourseContent />
           <Details />
           <Instructor />
           <Review />
+          </div>
         </div>
         <PaymentCard price={course.price} />
       </div>

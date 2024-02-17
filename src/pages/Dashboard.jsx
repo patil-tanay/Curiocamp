@@ -20,9 +20,11 @@ const Dashboard = () => {
   return (
     <>
       <Navbar/>
-      <ul className="m-2 p-4 rounded-sm z-10">
+      <div className="flex-row lg:flex">
+        <div className="w-full">
+      <ul className="m-1 p-4 sticky top-2 gap-3 bg-white z-10 flex flex-nowrap overflow-scroll items-center justify-center overflow-y-hidden">
           <button
-            className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:text-white hover:bg-[#4F46E5] ${updateDetails? "bg-[#4F46E5] text-white" : "bg-[#f4f4fe]"}`}
+            className="block-inline select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             onClick={() => {
               setUpdateDetails(true);
               setCompletedCourses(false);
@@ -33,7 +35,7 @@ const Dashboard = () => {
             Update Details
           </button>
           <button
-            className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:text-white hover:bg-[#4F46E5] ${completedCourses? "bg-[#4F46E5] text-white" : "bg-[#f4f4fe]"}`}
+            className="block-inline select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             onClick={() => {
               setUpdateDetails(false);
               setCompletedCourses(true);
@@ -44,7 +46,7 @@ const Dashboard = () => {
             Completed Courses
           </button>
           <button
-            className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:text-white hover:bg-[#4F46E5] ${ongoingCourses? "bg-[#4F46E5] text-white" : "bg-[#f4f4fe]"}`}
+            className="block-inline select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             onClick={() => {
               setUpdateDetails(false);
               setCompletedCourses(false);
@@ -55,7 +57,7 @@ const Dashboard = () => {
             Ongoing Courses
           </button>
           <button
-            className={`cursor-pointer mx-2 py-2 px-3 rounded-full shadow-xl inline font-bold hover:text-white hover:bg-[#4F46E5] ${purchesedCourses? "bg-[#4F46E5] text-white" : "bg-[#f4f4fe]"}`}
+            className="block-inline select-none text-white rounded-full bg-indigo-600 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             onClick={() => {
               setUpdateDetails(false);
               setCompletedCourses(false);
@@ -66,7 +68,9 @@ const Dashboard = () => {
             Purchesed Courses
           </button>
         </ul>
-      <div className="flex justify-around">
+        </div>
+        </div>
+      <div className="block justify-around">
         {updateDetails && <UpdateDetails />}
         {ongoingCourses && <OngoingCourses />}
         {purchesedCourses && <PurchesedCourses />}
