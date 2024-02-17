@@ -28,7 +28,10 @@ const VideoRoom = () => {
   const [isVideoOn, setIsVideoOn] = useState(false)
   const [isAudioPubed, setIsAudioPubed] = useState(false)
   const [isVideoPubed, setIsVideoPubed] = useState(false)
-  const [isVideoSubed, setIsVideoSubed] = useState(false)
+  const [isVideoSubed, setIsVideoSubed] = useState(false);
+  const is_actual_superuser = localStorage.getItem("is_actual_superuser");
+
+
   const turnOnCamera = async flag => {
     flag = flag ?? !isVideoOn
     setIsVideoOn(flag)
