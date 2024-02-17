@@ -32,6 +32,7 @@ const LiveStreamRoom = () => {
   const [isVideoSubed, setIsVideoSubed] = useState(false)
   const [isLiveStreamRoom, setIsLiveStreamRoom] = useState(true);
   const is_actual_superuser = localStorage.getItem("is_actual_superuser");
+  console.log(is_actual_superuser);
 
 
 
@@ -119,14 +120,14 @@ const LiveStreamRoom = () => {
       <div className="left-side mt-2">
         {/* <h3>Pleat check you camera / microphone!</h3> */}
         <div className="buttons">
-      {is_actual_superuser && <button
+      {(is_actual_superuser === "true") && <button
             onClick={() => turnOnCamera()}
             // className={isVideoOn ? "button-on" : ""}
           className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'
           >
             Turn {isVideoOn ? "off" : "on"} camera
           </button>}
-{ is_actual_superuser && <button
+{ (is_actual_superuser === "true") && <button
             onClick={() => turnOnMicrophone()}
             className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'
           >
@@ -160,14 +161,14 @@ const LiveStreamRoom = () => {
           <button onClick={joinChannel} className={`py-2 mt-1 px-4 mx-2 inline-block rounded-full shadow-2xl bg-[#4F46E5] text-[#FFFFFF] hover:bg-[#382bf0] hover:-translate-y-1 duration-300`}>
             Join Channel
           </button>
-      {is_actual_superuser &&  <button
+      {(is_actual_superuser === "true") &&  <button
             onClick={publishVideo}
             // className={isVideoPubed ? "button-on" : ""}
             className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'
           >
             Publish Video
           </button>}
-{is_actual_superuser &&<button
+{(is_actual_superuser === "true") &&<button
             onClick={publishAudio}
             // className={isAudioPubed ? "button-on" : ""}
           className='flex border-2 items-center w-full justify-center  px-3 py-3 rounded-2xl m-2 border-indigo-600'

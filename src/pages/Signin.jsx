@@ -6,10 +6,7 @@ import { Formik, Form } from "formik";
 import Img from "../assets/login_vector.png";
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { ClipLoader, PacmanLoader } from "react-spinners";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
   const url = import.meta.env.VITE_BASE_URL;
@@ -34,23 +31,31 @@ const Signin = () => {
             onSubmit={async (values, formik) => {
               setLoading(true); // Set loading state to true on form submission
               const formData = { email: values.email, password: values.pwd };
-              const response = await fetch(`${url}user/login/`, {
-                method: "POST",
-                body: JSON.stringify(formData),
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "application/json",
-                },
-              });
-              const responseData = await response.json();
-              localStorage.setItem("token", responseData.token.access);
-              localStorage.setItem("user_id", responseData.results.id);
-              localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
-              if (localStorage.getItem("token")) {
-                navigate("/courses");
-              } else {
-                navigate("/home");
+              try {
+                const response = await fetch(`${url}user/login/`, {
+                  method: "POST",
+                  body: JSON.stringify(formData),
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                });
+                const responseData = await response.json();
+                if (response.ok) {
+                  localStorage.setItem("token", responseData.token.access);
+                  localStorage.setItem("user_id", responseData.results.id);
+                  localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
+                  toast.success(responseData.message);
+                  console.log(responseData.message);
+                  navigate("/courses");
+                } else {
+                  toast.error(responseData.message);
+                }
+              } catch (error) {
+                console.error('Error logging in:', error);
+                toast.error('An error occurred while logging in. Please try again later.');
               }
+              setLoading(false); // Set loading state to false after request completes
             }}
           >
             {(formik) => (
@@ -65,11 +70,6 @@ const Signin = () => {
                   type="submit"
                   className="text-[#E0E0E0] rounded-full px-5 py-2 my-8 mx-auto flex items-center bg-[#4F46E5] shadow-lg shadow-[#040c166b] font-bold text-lg dark:shadow-lg dark:shadow-[#959494] hover:bg-[#382bf0] hover:-translate-y-1 duration-300 relative" // Add relative positioning
                 >
-                  {/* {loading && ( // Render cliploader if loading state is true
-                    <div className="absolute inset-0 flex justify-center items-center">
-                      <ClipLoader color="#ffffff" loading={true} size={20} /> // Customize ClipLoader as needed
-                    </div>
-                  )} */}
                   Log In
                 </button>
               </Form>

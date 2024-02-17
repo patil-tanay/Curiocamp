@@ -152,7 +152,7 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            SIGN IN
+            SIGN UP
           </Link>
         </li>
       </ul>

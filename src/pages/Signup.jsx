@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import TextField from "../component/TextField";
 import RadioField from "../component/RadioField";
@@ -7,7 +7,7 @@ import Img from "../assets/signup_vector.png";
 import Navbar from "../component/Navbar";
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const url = import.meta.env.VITE_BASE_URL;
@@ -18,13 +18,13 @@ const Signup = () => {
     lastName: Yup.string().required("Required"),
     pwd: Yup.string().required("Required"),
     confirmPassword: Yup.string().required("Required"),
-    // dateOfBirth: Yup.string().required("Required"),
     gender: Yup.string().required("Required"),
     phoneNumber: Yup.string().required("Required"),
   });
+
   return (
     <>
-      <Navbar isSignup/>
+      <Navbar isSignup />
       <div className="flex justify-around">
         <div className="text-black flex items-center justify-center pt-[70px]">
           <Formik
@@ -33,45 +33,51 @@ const Signup = () => {
               firstName: "",
               lastName: "",
               confirmPassword: "",
-              // dateOfBirth: "",
               pwd: "",
               gender: "",
               phoneNumber: "",
             }}
             validationSchema={validate}
-            onSubmit={async (values, formik) => {
+            onSubmit={async (values, { setSubmitting }) => {
               const formData = {
                 email: values.email,
                 first_name: values.firstName,
                 last_name: values.lastName,
                 password2: values.confirmPassword,
-                // date_of_birth: "2023-01-01",
                 password: values.pwd,
                 gender: values.gender,
                 phone_number: values.phoneNumber,
               };
-              const response = await fetch(
-                `${url}user/register/`,
-                {
+
+              try {
+                const response = await fetch(`${url}user/register/`, {
                   method: "POST",
                   body: JSON.stringify(formData),
                   headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                   },
+                });
+
+                const responseData = await response.json();
+                if (response.ok) {
+                  localStorage.setItem('token', responseData.token.access);
+                  localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
+                  localStorage.setItem("user_id", responseData.results.id);
+                  toast.success(responseData.message);
+                  console.log(responseData.message)
+                  navigate('/courses');
+                } else {
+                  Object.values(responseData.errors).forEach(error => {
+                    error.forEach(err => toast.error(err));
+                  });
                 }
-              );
-              const responseData = await response.json();
-              localStorage.setItem('token',responseData.token.access);
-              localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
-              localStorage.setItem("user_id", responseData.results.id);
-              // console.log(localStorage.getItem('token'));
-              if (localStorage.getItem('token')){
-                navigate('/courses'); // #TODO DECIDE WHERE TO NAVIGATE
+              } catch (error) {
+                console.error('Error registering user:', error);
+                toast.error('An error occurred while registering. Please try again later.');
               }
-              else {
-                navigate('/home');
-              }
+
+              setSubmitting(false);
             }}
           >
             {(formik) => (
