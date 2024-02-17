@@ -61,7 +61,7 @@
 
 
 .imgbg{
-    background-image: url('./assets/course1.png') !important;
+    background-image: url('./assets/bgimg.png') !important;
     background-color: #cccccc; /* Used if the image is unavailable */
     height: 100vh; /* You must set a specified height */
     background-position: center; /* Center the image */
