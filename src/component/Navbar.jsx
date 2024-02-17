@@ -25,46 +25,46 @@ const Navbar = ({ isSignup, isSignin }) => {
                 className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600"
                 to="/"
               >
-                Home
+                HOME
               </Link>
               <Link
                 className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600"
                 to="/courses"
               >
-                Courses
+                COURSES
               </Link>
               <Link
                 className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600"
                 to="/dashboard"
               >
-                Dashboard
+                DASHBOARD
               </Link>
               <Link
                 className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600"
                 to="/collaborate"
               >
-                Collaborate
+                COLLABORATE
               </Link>
-              <Link className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600">
-                Contact Us
+              <Link className="text-[#707070] hover:text-black hover:border-b-2 border-indigo-600" to="/dailyquest">
+                DAILY QUEST
               </Link>
             </ul>
           </div>
           <div className="absolute right-3 top-3">
             {isUserAuthenticated ? (
               <div onClick={handleLogout} className="py-2 mt-1 px-4 mx-2 inline-block rounded-full shadow-2xl bg-[#4F46E5] text-[#FFFFFF] hover:bg-[#382BF0] hover:-translate-y-1 duration-300">
-                <Link to="/signin">Log out</Link>
+                <Link to="/signin">LOG OUT</Link>
               </div>
             ) : (
               <div>
                 {isSignup && (
                   <div className="py-2 mt-1 px-4 mx-2 inline-block rounded-full shadow-2xl bg-[#4F46E5] text-[#FFFFFF] hover:bg-[#382BF0] hover:-translate-y-1 duration-300">
-                    <Link to="/signin">Log in</Link>
+                    <Link to="/signin">LOG IN</Link>
                   </div>
                 )}
                 {isSignin && (
                   <div className="py-2 mt-1 px-4 mx-2 inline-block rounded-full shadow-2xl bg-[#4F46E5] text-[#FFFFFF] hover:bg-[#382BF0] hover:-translate-y-1 duration-300">
-                    <Link to="/signup">Sign Up</Link>
+                    <Link to="/signup">SIGN UP</Link>
                   </div>
                 )}
               </div>
@@ -92,7 +92,7 @@ const Navbar = ({ isSignup, isSignin }) => {
       >
         <li className="py-3 text-3xl">
           <Link onClick={handleClick} to="/" smooth={"true"} duration={500}>
-            Home
+            HOME
           </Link>
         </li>
         <li className="py-3 text-3xl">
@@ -102,7 +102,7 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            Courses
+            COURSES
           </Link>
         </li>
         <li className="py-3 text-3xl">
@@ -112,7 +112,7 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            Dashboard
+            DASHBOARD
           </Link>
         </li>
         <li className="py-3 text-3xl">
@@ -122,17 +122,17 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            Collaborate
+            COLLABORATE
           </Link>
         </li>
         <li className="py-3 text-3xl">
           <Link
             onClick={handleClick}
-            to="contact"
+            to="/dailyquest"
             smooth={"true"}
             duration={500}
           >
-            Contact Us
+            DAILY QUEST
           </Link>
         </li>
         <li className="py-3 text-3xl">
@@ -142,7 +142,7 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            Log in
+            LOG IN
           </Link>
         </li>
         <li className="py-3 text-3xl">
@@ -152,7 +152,7 @@ const Navbar = ({ isSignup, isSignin }) => {
             smooth={"true"}
             duration={500}
           >
-            Sign up
+            SIGN IN
           </Link>
         </li>
       </ul>
