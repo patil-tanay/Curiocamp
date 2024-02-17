@@ -31,10 +31,10 @@ const Home = () => {
                 View Courses
               </Link>
               <Link
-                to="/pathquestions"
+                to="/learningpath"
                 rel="noopener"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-full ">
-                Get Personalized Learning Path
+                Custom Path
               </Link>
                 
             </div>

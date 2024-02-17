@@ -63,6 +63,8 @@ const Signup = () => {
               );
               const responseData = await response.json();
               localStorage.setItem('token',responseData.token.access);
+              localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
+              localStorage.setItem("user_id", responseData.results.id);
               // console.log(localStorage.getItem('token'));
               if (localStorage.getItem('token')){
                 navigate('/courses'); // #TODO DECIDE WHERE TO NAVIGATE

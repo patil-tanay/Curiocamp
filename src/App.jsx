@@ -28,6 +28,8 @@ import Leaderboard from "./component/Leaderboard";
 import QuizForm from "./component/Quizform";
 import Dailyquest from "./pages/Dailyquest";
 import QuizPage from "./pages/Quizpage";
+import Learningpath from "./pages/LearningPath";
+
 const App = () => {
   return (
     <>
@@ -48,6 +50,7 @@ const App = () => {
         <Route exact path="/quizform" element={<QuizForm />} />
         <Route exact path="/dailyquest" element={<Dailyquest />} />
         <Route exact path="/quizpage" element={<QuizPage />} />
+        <Route exact path="/learningpath" element={<Learningpath />} />
         <Route exact path='/*' element={<Error />} />
       </Routes>
     </>

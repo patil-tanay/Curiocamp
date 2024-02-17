@@ -45,6 +45,7 @@ const Signin = () => {
               const responseData = await response.json();
               localStorage.setItem("token", responseData.token.access);
               localStorage.setItem("user_id", responseData.results.id);
+              localStorage.setItem("is_actual_superuser", responseData.results.is_actual_superuser);
               if (localStorage.getItem("token")) {
                 navigate("/courses");
               } else {
