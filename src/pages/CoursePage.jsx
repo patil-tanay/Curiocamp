@@ -10,12 +10,16 @@ import Instructor from "../courseContent/Instructor";
 import Review from "../courseContent/Review";
 import PaymentCard from "../courseContent/PaymentCard";
 import Footer from "../component/footer";
+import Ratings from "../component/Rating";
+
 const CoursePage = () => {
   const { id } = useParams();
   const [course, setCourse] = useState([]);
-  //   let scrollStop = false;
+  const [canPostReview, setCanPostReview] = useState(false); // State variable to track if user can post review
   const url = import.meta.env.VITE_BASE_URL;
+
   useEffect(() => {
+    // Fetch course details
     fetch(`${url}api/courses/${id}/`)
       .then((response) => {
         if (!response.ok) {
@@ -24,13 +28,38 @@ const CoursePage = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
+        console.log(data.results.review);
         setCourse(data.results);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
       });
-  }, []);
+
+    // Check if user can post review
+    fetch(`${url}checktopostreviews/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        course: id,
+        user: localStorage.getItem("user_id"), // Assuming user_id is stored in localStorage
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setCanPostReview(data.status); // Set state based on response
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, [id]); // Include id in dependencies array to re-fetch data when id changes
   //   function getScrollPosition() {
   //     let scrollPosition = window.scrollY;
   //     if(scrollPosition >= 350){
@@ -50,6 +79,7 @@ const CoursePage = () => {
         </p>
         <p className="text-sm">{course.keyword}</p>
         <p className="font-semibold">₹{course.price}</p>
+        <Ratings rating={course.review}></Ratings>
       </div>
       <div className="flex-row lg:flex">
         <div className="w-full lg:w-[1000px]">
@@ -113,7 +143,7 @@ const CoursePage = () => {
           <Review />
           </div>
         </div>
-        <PaymentCard price={course.price} />
+        {!canPostReview && <PaymentCard price={course.price} />}
       </div>
       <Footer/>
     </div>

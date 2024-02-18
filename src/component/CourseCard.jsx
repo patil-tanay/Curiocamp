@@ -1,8 +1,9 @@
 import React from "react";
 import { IoBookOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Ratings from "./Rating";
 const CourseCard = ({ course }) => {
-  const { id, title, description, image, keyword, price, course_modules } =
+  const { id, title, description, image, keyword, price, course_modules, review } =
     course;
   // const sliced = keyword.slice(1,5);
   return (
@@ -15,6 +16,7 @@ const CourseCard = ({ course }) => {
         />
         <div className=" flex flex-col gap-2">
           <h2 className="font-bold text-lg">{title}</h2>
+          <Ratings rating={review}></Ratings>
           {/* <p className='font-semibold'>{description}</p> */}
           <p className="flex gap-2 text-indigo-600">
             <IoBookOutline className="mt-[5px] text-indigo-600" />{" "}

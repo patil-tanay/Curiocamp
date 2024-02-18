@@ -9,9 +9,11 @@ const PurchasedCourses = () => {
   // const { id } = useParams();
   const user_id = localStorage.getItem("user_id");
   const authToken = localStorage.getItem("token");
+  const [showCard, setShowCard] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      // const response = 
       const axiosInstance = axios.create({
         headers: {
           Authorization: `Bearer ${authToken}`,

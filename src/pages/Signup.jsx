@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
   const url = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
+  // const [isOtp, setIsOtp] = useState(false);
+
   const validate = Yup.object({
     email: Yup.string().email("Email is invalid").required("Required"),
     firstName: Yup.string().required("Required"),
@@ -20,8 +22,10 @@ const Signup = () => {
     confirmPassword: Yup.string().required("Required"),
     gender: Yup.string().required("Required"),
     phoneNumber: Yup.string().required("Required"),
+    otp:Yup.string().required("Required"),
   });
 
+  // const response = await fetch(`${url}user/register/`)
   return (
     <>
       <Navbar isSignup />
@@ -36,6 +40,7 @@ const Signup = () => {
               pwd: "",
               gender: "",
               phoneNumber: "",
+              otp:""
             }}
             validationSchema={validate}
             onSubmit={async (values, { setSubmitting }) => {
@@ -47,6 +52,7 @@ const Signup = () => {
                 password: values.pwd,
                 gender: values.gender,
                 phone_number: values.phoneNumber,
+                otp:values.otp
               };
 
               try {
@@ -143,7 +149,43 @@ const Signup = () => {
                   type="text"
                   placeholder="Phone Number"
                 />
+                <TextField
+                  name="otp"
+                  type="text"
+                  placeholder="ENTER YOUR OTP"
+                />
+                 {/* <button
+                  type="button"
+                  className="text-[#E0E0E0] rounded-full px-5 py-2 my-8 mx-auto flex items-center bg-[#4F46E5] shadow-lg shadow-[#040c166b] font-bold text-lg dark:shadow-lg dark:shadow-[#000000] hover:bg-[#382bf0] hover:-translate-y-1 duration-300"
+                  onClick={() => {
+                    // Call the API to generate OTP here
+                    fetch(`${url}getotp/`, {
+                      method: "POST",
+                      body: JSON.stringify({ phoneNumber: formik.values.phoneNumber }),
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                      },
+                    })
+                      .then(response => response.json())
+                      .then(data => {
+                        if (data.success) {
+                          toast.success('OTP sent successfully!');
+                          toggleOtp(); // Show OTP field after successful OTP generation
+                        } else {
+                          toast.error('Failed to generate OTP. Please try again.');
+                        }
+                      })
+                      .catch(error => {
+                        console.error('Error generating OTP:', error);
+                        toast.error('An error occurred. Please try again later.');
+                      });
+                  }}
+                >
+                  SEND OTP
+                </button> */}
                 <button
+                // disabled={!isOtp}
                   type="submit"
                   className="text-[#E0E0E0] rounded-full px-5 py-2 my-8 mx-auto flex items-center bg-[#4F46E5] shadow-lg shadow-[#040c166b] font-bold text-lg dark:shadow-lg dark:shadow-[#000000] hover:bg-[#382bf0] hover:-translate-y-1 duration-300"
                 >
